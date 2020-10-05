@@ -44,6 +44,9 @@ public class Number {
 
         if (aux != 0 && aux != 1) {
             result += dozens(aux);
+            if (number % 10 != 0) {
+                result += "-";
+            }
         }
         if (aux == 1){
             result += ten_to_nineteen(number%10);
@@ -138,28 +141,28 @@ public class Number {
 
         switch (number) {
             case 2:
-                result = "twenty-";
+                result = "twenty";
                 break;
             case 3:
-                result = "thirty-";
+                result = "thirty";
                 break;
             case 4:
-                result = "forty-";
+                result = "forty";
                 break;
             case 5:
-                result = "fifty-";
+                result = "fifty";
                 break;
             case 6:
-                result = "sixty-";
+                result = "sixty";
                 break;
             case 7:
-                result = "seventy-";
+                result = "seventy";
                 break;
             case 8:
-                result = "eighty-";
+                result = "eighty";
                 break;
             case 9:
-                result = "ninety-";
+                result = "ninety";
                 break;
         }
         return result;
@@ -185,6 +188,9 @@ public class Number {
 
         if (dozens_millions != 0 && dozens_millions != 1) {
             result = dozens(dozens_millions);
+            if (((number / 1000000) % 10) != 0) {
+                result += "-";
+            }
         }
         else if (dozens_millions == 1) {
             result = ten_to_nineteen((number / 1000000)%10);
@@ -225,6 +231,10 @@ public class Number {
 
         if (dozens_thousands != 0 && dozens_thousands != 1) {
             result = dozens(dozens_thousands);
+
+            if (((number / 1000) % 10) != 0) {
+                result += "-";
+            }
         }
         else if (dozens_thousands == 1) {
             result = ten_to_nineteen((number / 1000)%10);
